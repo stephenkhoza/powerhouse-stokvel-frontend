@@ -204,23 +204,23 @@ function App() {
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <header className="bg-gradient-to-r from-green-600 to-green-700 text-white shadow-lg">
-        <div className="max-w-7xl mx-auto px-4 py-4">
-          <div className="flex justify-between items-center">
-            <div>
-              <h1 className="text-2xl font-bold">The Powerhouse Stokvel Club</h1>
-              <p className="text-green-100 text-sm">Save Together - Grow Together - Succeed Together!</p>
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 py-3 sm:py-4">
+          <div className="flex justify-between items-center gap-2 sm:gap-4">
+            <div className="min-w-0 flex-1">
+              <h1 className="text-lg sm:text-2xl font-bold truncate">Powerhouse Stokvel</h1>
+              <p className="text-green-100 text-xs sm:text-sm hidden sm:block">Save Together - Grow Together - Succeed Together!</p>
             </div>
-            <div className="flex items-center gap-4">
-              <div className="text-right">
-                <p className="font-medium">{currentUser.name}</p>
-                <p className="text-sm text-green-100">{currentUser.id}</p>
+            <div className="flex items-center gap-2 sm:gap-4">
+              <div className="text-right hidden sm:block">
+                <p className="font-medium text-sm">{currentUser.name}</p>
+                <p className="text-xs text-green-100">{currentUser.id}</p>
               </div>
               <button
                 onClick={handleLogout}
-                className="bg-white text-green-600 px-4 py-2 rounded-lg hover:bg-green-50 flex items-center gap-2 transition-colors"
+                className="bg-white text-green-600 px-2 sm:px-4 py-1.5 sm:py-2 rounded-lg hover:bg-green-50 flex items-center gap-1 sm:gap-2 transition-colors text-xs sm:text-base"
               >
-                <LogOut size={18} />
-                Logout
+                <LogOut size={16} />
+                <span className="hidden sm:inline">Logout</span>
               </button>
             </div>
           </div>
@@ -229,23 +229,23 @@ function App() {
 
       {/* Error Message */}
       {error && (
-        <div className="max-w-7xl mx-auto px-4 py-2">
-          <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg flex justify-between items-center">
-            <div className="flex items-center gap-2">
-              <AlertCircle size={20} />
-              <span>{error}</span>
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 py-2">
+          <div className="bg-red-50 border border-red-200 text-red-700 px-3 sm:px-4 py-2 sm:py-3 rounded-lg flex justify-between items-start sm:items-center gap-2">
+            <div className="flex items-start gap-2 flex-1 min-w-0">
+              <AlertCircle size={18} className="flex-shrink-0 mt-0.5" />
+              <span className="text-xs sm:text-sm break-words">{error}</span>
             </div>
-            <button onClick={() => setError(null)} className="text-red-700 hover:text-red-900">
-              <X size={18} />
+            <button onClick={() => setError(null)} className="text-red-700 hover:text-red-900 flex-shrink-0">
+              <X size={16} />
             </button>
           </div>
         </div>
       )}
 
       {/* Navigation */}
-      <nav className="bg-white border-b shadow-sm">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex gap-1">
+      <nav className="bg-white border-b shadow-sm overflow-x-auto">
+        <div className="max-w-7xl mx-auto px-3 sm:px-4">
+          <div className="flex gap-1 min-w-min sm:min-w-0">
             <NavButton
               icon={<Home size={18} />}
               label="Dashboard"
@@ -277,7 +277,7 @@ function App() {
       </nav>
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-4 py-8">
+      <main className="max-w-7xl mx-auto px-3 sm:px-4 py-4 sm:py-8">
         {loading && (
           <div className="flex justify-center mb-4">
             <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-green-600"></div>
@@ -357,28 +357,26 @@ const LoginScreen = ({ onLogin, error, loading }) => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-green-100 flex items-center justify-center p-4">
-      <div className="bg-white rounded-2xl shadow-xl p-8 w-full max-w-md">
-        <div className="text-center mb-8">
-          <div className="bg-green-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-            <Users className="text-white" size={32} />
+    <div className="min-h-screen bg-gradient-to-br from-green-50 to-green-100 flex items-center justify-center p-3 sm:p-4">
+      <div className="bg-white rounded-2xl shadow-xl p-5 sm:p-8 w-full max-w-md">
+        <div className="text-center mb-6 sm:mb-8">
+          <div className="bg-green-600 w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+            <Users className="text-white" size={24} />
           </div>
-          <h1 className="text-3xl font-bold text-gray-800">Powerhouse Stockvel</h1>
-          <p className=" text-2xl font-bold text-gray-600  mt-2">Login</p>
-
-          
+          <h1 className="text-xl sm:text-3xl font-bold text-gray-800">Powerhouse Stokvel</h1>
+          <p className="text-lg sm:text-2xl font-bold text-gray-600 mt-1 sm:mt-2">Login</p>
         </div>
 
         {error && (
-          <div className="mb-4 bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm flex items-center gap-2">
-            <AlertCircle size={18} />
-            {error}
+          <div className="mb-4 bg-red-50 border border-red-200 text-red-700 px-3 sm:px-4 py-2 sm:py-3 rounded-lg text-xs sm:text-sm flex items-start gap-2">
+            <AlertCircle size={16} className="flex-shrink-0 mt-0.5" />
+            <span>{error}</span>
           </div>
         )}
 
-        <div className="space-y-4">
+        <div className="space-y-3 sm:space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">
               Email Address
             </label>
             <input
@@ -386,14 +384,14 @@ const LoginScreen = ({ onLogin, error, loading }) => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               onKeyPress={(e) => e.key === 'Enter' && handleSubmit()}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+              className="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
               placeholder="your.email@example.com"
               disabled={loading}
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">
               Password
             </label>
             <input
@@ -401,7 +399,7 @@ const LoginScreen = ({ onLogin, error, loading }) => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               onKeyPress={(e) => e.key === 'Enter' && handleSubmit()}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+              className="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
               placeholder="••••••••"
               disabled={loading}
             />
@@ -410,16 +408,10 @@ const LoginScreen = ({ onLogin, error, loading }) => {
           <button
             onClick={handleSubmit}
             disabled={loading}
-            className="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full bg-green-600 text-white py-2 sm:py-3 rounded-lg hover:bg-green-700 font-medium text-sm sm:text-base transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {loading ? 'Logging in...' : 'Login'}
           </button>
-        </div>
-
-        <div className="mt-6 p-4 bg-blue-50 rounded-lg">
-          {/* <p className="text-sm text-blue-800 font-medium mb-2">Demo Credentials:</p>
-          <p className="text-xs text-blue-700">Admin: thabo@example.com / admin123</p>
-          <p className="text-xs text-blue-700">Member: zanele@example.com / member123</p> */}
         </div>
       </div>
     </div>
@@ -430,14 +422,15 @@ const LoginScreen = ({ onLogin, error, loading }) => {
 const NavButton = ({ icon, label, active, onClick }) => (
   <button
     onClick={onClick}
-    className={`flex items-center gap-2 px-4 py-3 font-medium transition-colors ${
+    className={`flex items-center gap-1 sm:gap-2 px-2 sm:px-4 py-2 sm:py-3 font-medium text-xs sm:text-base whitespace-nowrap transition-colors ${
       active
         ? 'text-green-600 border-b-2 border-green-600'
         : 'text-gray-600 hover:text-green-600'
     }`}
   >
     {icon}
-    {label}
+    <span className="hidden sm:inline">{label}</span>
+    <span className="sm:hidden text-xs">{label.split(' ')[0]}</span>
   </button>
 );
 
@@ -447,16 +440,16 @@ const DashboardTab = ({ currentUser, stats, contributions, announcements }) => {
   const recentAnnouncements = announcements.slice(0, 3);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-6">
       <div>
-        <h2 className="text-2xl font-bold text-gray-800 mb-2">
+        <h2 className="text-xl sm:text-2xl font-bold text-gray-800 mb-1 sm:mb-2">
           Hi, {currentUser.name.split(' ')[0]}!
         </h2>
-        <p className="text-gray-600">Here's your stokvel overview</p>
+        <p className="text-sm sm:text-base text-gray-600">Here's your stokvel overview</p>
       </div>
 
       {/* Stats Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-6">
         <StatCard
           title="Total Saved"
           value={`R ${stats.totalSaved?.toLocaleString() || 0}`}
@@ -478,8 +471,8 @@ const DashboardTab = ({ currentUser, stats, contributions, announcements }) => {
       </div>
 
       {/* Recent Contributions */}
-      <div className="bg-white rounded-xl shadow-md p-6">
-        <h3 className="text-lg font-bold text-gray-800 mb-4">Recent Contributions</h3>
+      <div className="bg-white rounded-xl shadow-md p-4 sm:p-6">
+        <h3 className="text-base sm:text-lg font-bold text-gray-800 mb-3 sm:mb-4">Recent Contributions</h3>
         <div className="space-y-3">
           {myContributions.length === 0 ? (
             <p className="text-gray-500 text-center py-4">No contributions yet</p>
@@ -498,8 +491,8 @@ const DashboardTab = ({ currentUser, stats, contributions, announcements }) => {
       </div>
 
       {/* Recent Announcements */}
-      <div className="bg-white rounded-xl shadow-md p-6">
-        <h3 className="text-lg font-bold text-gray-800 mb-4">Latest Announcements</h3>
+      <div className="bg-white rounded-xl shadow-md p-4 sm:p-6">
+        <h3 className="text-base sm:text-lg font-bold text-gray-800 mb-3 sm:mb-4">Latest Announcements</h3>
         <div className="space-y-3">
           {recentAnnouncements.length === 0 ? (
             <p className="text-gray-500 text-center py-4">No announcements yet</p>
@@ -533,31 +526,32 @@ const MembersTab = ({ members, contributions, showBankDetails, setShowBankDetail
   };
 
   return (
-    <div className="space-y-6">
-      <div className="flex justify-between items-center">
+    <div className="space-y-4 sm:space-y-6">
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 sm:gap-4">
         <div>
-          <h2 className="text-2xl font-bold text-gray-800">Member Management</h2>
-          <p className="text-gray-600">Total Members: {members.length}</p>
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-800">Member Management</h2>
+          <p className="text-xs sm:text-base text-gray-600">Total Members: {members.length}</p>
         </div>
         <button
           onClick={onAddMember}
-          className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 flex items-center gap-2 transition-colors"
+          className="w-full sm:w-auto bg-green-600 text-white px-3 sm:px-4 py-2 rounded-lg hover:bg-green-700 flex items-center justify-center sm:justify-start gap-2 transition-colors text-sm sm:text-base"
         >
           <Plus size={18} />
           Add Member
         </button>
       </div>
 
-      <div className="bg-white rounded-xl shadow-md overflow-hidden">
+      {/* Desktop Table View */}
+      <div className="bg-white rounded-xl shadow-md overflow-hidden hidden md:block">
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead className="bg-gray-50 border-b">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Member</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Contact</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Banking</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
+                <th className="px-4 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Member</th>
+                <th className="px-4 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Contact</th>
+                <th className="px-4 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
+                <th className="px-4 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Banking</th>
+                <th className="px-4 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
@@ -567,33 +561,33 @@ const MembersTab = ({ members, contributions, showBankDetails, setShowBankDetail
                 
                 return (
                   <tr key={member.id} className="hover:bg-gray-50">
-                    <td className="px-6 py-4">
+                    <td className="px-4 sm:px-6 py-4">
                       <div>
-                        <p className="font-medium text-gray-800">{member.name}</p>
-                        <p className="text-sm text-gray-600">{member.id}</p>
+                        <p className="font-medium text-gray-800 text-sm">{member.name}</p>
+                        <p className="text-xs text-gray-600">{member.id}</p>
                         <p className="text-xs text-gray-500">ID: {member.id_number?.substring(0, 6)}***</p>
                       </div>
                     </td>
-                    <td className="px-6 py-4">
-                      <div className="text-sm">
+                    <td className="px-4 sm:px-6 py-4">
+                      <div className="text-xs sm:text-sm">
                         <p className="text-gray-800">{member.phone}</p>
                         <p className="text-gray-600">{member.email}</p>
                       </div>
                     </td>
-                    <td className="px-6 py-4">
+                    <td className="px-4 sm:px-6 py-4">
                       <StatusBadge status={member.status} />
                       <p className="text-xs text-gray-600 mt-1">{totalPaid} payments</p>
                     </td>
-                    <td className="px-6 py-4">
+                    <td className="px-4 sm:px-6 py-4">
                       <button
                         onClick={() => toggleBankDetails(member.id)}
-                        className="flex items-center gap-2 text-sm text-green-600 hover:text-green-700 transition-colors"
+                        className="flex items-center gap-2 text-xs sm:text-sm text-green-600 hover:text-green-700 transition-colors"
                       >
                         {showBankDetails[member.id] ? <EyeOff size={16} /> : <Eye size={16} />}
                         {showBankDetails[member.id] ? 'Hide' : 'View'}
                       </button>
                       {showBankDetails[member.id] && (
-                        <div className="mt-3 p-3 bg-yellow-50 border border-yellow-200 rounded text-xs space-y-1">
+                        <div className="mt-3 p-2 sm:p-3 bg-yellow-50 border border-yellow-200 rounded text-xs space-y-1">
                           <p className="font-medium text-red-700 mb-2">🔒 FOR CLUB USE ONLY - POPIA Protected</p>
                           <p><span className="font-medium">Bank:</span> {member.bank_name}</p>
                           <p><span className="font-medium">Holder:</span> {member.account_holder}</p>
@@ -602,7 +596,7 @@ const MembersTab = ({ members, contributions, showBankDetails, setShowBankDetail
                         </div>
                       )}
                     </td>
-                    <td className="px-6 py-4">
+                    <td className="px-4 sm:px-6 py-4">
                       <button
                         onClick={() => onDeleteMember(member.id)}
                         className="text-red-600 hover:text-red-700 transition-colors"
@@ -618,6 +612,68 @@ const MembersTab = ({ members, contributions, showBankDetails, setShowBankDetail
           </table>
         </div>
       </div>
+
+      {/* Mobile Card View */}
+      <div className="md:hidden space-y-3">
+        {members.map(member => {
+          const memberContribs = contributions.filter(c => c.member_id === member.id);
+          const totalPaid = memberContribs.filter(c => c.status === 'Paid').length;
+          
+          return (
+            <div key={member.id} className="bg-white rounded-lg shadow-md p-4 space-y-3">
+              <div className="flex justify-between items-start gap-2">
+                <div className="flex-1 min-w-0">
+                  <p className="font-medium text-gray-800 text-sm">{member.name}</p>
+                  <p className="text-xs text-gray-600">{member.id}</p>
+                  <p className="text-xs text-gray-500">ID: {member.id_number?.substring(0, 6)}***</p>
+                </div>
+                <button
+                  onClick={() => onDeleteMember(member.id)}
+                  className="text-red-600 hover:text-red-700 flex-shrink-0"
+                  title="Delete member"
+                >
+                  <Trash2 size={18} />
+                </button>
+              </div>
+              
+              <div className="border-t pt-3 space-y-2">
+                <div>
+                  <p className="text-xs text-gray-600">Phone</p>
+                  <p className="text-sm text-gray-800">{member.phone}</p>
+                </div>
+                <div>
+                  <p className="text-xs text-gray-600">Email</p>
+                  <p className="text-sm text-gray-800 break-all">{member.email}</p>
+                </div>
+              </div>
+              
+              <div className="border-t pt-3 flex justify-between items-center">
+                <div className="flex flex-col gap-2">
+                  <StatusBadge status={member.status} />
+                  <p className="text-xs text-gray-600">{totalPaid} payments</p>
+                </div>
+                <button
+                  onClick={() => toggleBankDetails(member.id)}
+                  className="flex items-center gap-1 text-xs text-green-600 hover:text-green-700 transition-colors"
+                >
+                  {showBankDetails[member.id] ? <EyeOff size={14} /> : <Eye size={14} />}
+                  {showBankDetails[member.id] ? 'Hide' : 'View'}
+                </button>
+              </div>
+              
+              {showBankDetails[member.id] && (
+                <div className="bg-yellow-50 border border-yellow-200 rounded p-2 text-xs space-y-1">
+                  <p className="font-medium text-red-700 mb-2">🔒 FOR CLUB USE ONLY - POPIA Protected</p>
+                  <p><span className="font-medium">Bank:</span> {member.bank_name}</p>
+                  <p><span className="font-medium">Holder:</span> {member.account_holder}</p>
+                  <p><span className="font-medium">Account:</span> {member.account_number}</p>
+                  <p><span className="font-medium">Branch:</span> {member.branch_code}</p>
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
@@ -629,16 +685,16 @@ const ContributionsTab = ({ currentUser, contributions, members, isAdmin, onAddC
     : contributions.filter(c => c.member_id === currentUser.id);
 
   return (
-    <div className="space-y-6">
-      <div className="flex justify-between items-center">
+    <div className="space-y-4 sm:space-y-6">
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 sm:gap-4">
         <div>
-          <h2 className="text-2xl font-bold text-gray-800">Contributions</h2>
-          <p className="text-gray-600">Monthly contribution: R300 and above</p>
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-800">Contributions</h2>
+          <p className="text-xs sm:text-base text-gray-600">Monthly contribution: R300 and above</p>
         </div>
         {isAdmin && (
           <button
             onClick={onAddContribution}
-            className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 flex items-center gap-2 transition-colors"
+            className="w-full sm:w-auto bg-green-600 text-white px-3 sm:px-4 py-2 rounded-lg hover:bg-green-700 flex items-center justify-center sm:justify-start gap-2 transition-colors text-sm sm:text-base"
           >
             <Plus size={18} />
             Add Contribution
@@ -646,17 +702,18 @@ const ContributionsTab = ({ currentUser, contributions, members, isAdmin, onAddC
         )}
       </div>
 
-      <div className="bg-white rounded-xl shadow-md overflow-hidden">
+      {/* Desktop Table View */}
+      <div className="bg-white rounded-xl shadow-md overflow-hidden hidden md:block">
         <div className="overflow-x-auto">
           <table className="w-full">
             <thead className="bg-gray-50 border-b">
               <tr>
-                {isAdmin && <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Member</th>}
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Month</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Amount</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Date Paid</th>
-                {isAdmin && <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>}
+                {isAdmin && <th className="px-4 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Member</th>}
+                <th className="px-4 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Month</th>
+                <th className="px-4 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Amount</th>
+                <th className="px-4 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
+                <th className="px-4 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Date Paid</th>
+                {isAdmin && <th className="px-4 sm:px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>}
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
@@ -665,22 +722,22 @@ const ContributionsTab = ({ currentUser, contributions, members, isAdmin, onAddC
                 return (
                   <tr key={contrib.id} className="hover:bg-gray-50">
                     {isAdmin && (
-                      <td className="px-6 py-4 text-sm text-gray-800">
+                      <td className="px-4 sm:px-6 py-4 text-xs sm:text-sm text-gray-800">
                         {member?.name || 'Unknown'}
                       </td>
                     )}
-                    <td className="px-6 py-4 text-sm text-gray-800">{contrib.month}</td>
-                    <td className="px-6 py-4 text-sm text-gray-800">R {contrib.amount}</td>
-                    <td className="px-6 py-4">
+                    <td className="px-4 sm:px-6 py-4 text-xs sm:text-sm text-gray-800">{contrib.month}</td>
+                    <td className="px-4 sm:px-6 py-4 text-xs sm:text-sm text-gray-800">R {contrib.amount}</td>
+                    <td className="px-4 sm:px-6 py-4">
                       <StatusBadge status={contrib.status} />
                     </td>
-                    <td className="px-6 py-4 text-sm text-gray-600">{contrib.date_paid || '-'}</td>
+                    <td className="px-4 sm:px-6 py-4 text-xs sm:text-sm text-gray-600">{contrib.date_paid || '-'}</td>
                     {isAdmin && (
-                      <td className="px-6 py-4 flex gap-2">
+                      <td className="px-4 sm:px-6 py-4 flex gap-1 sm:gap-2 flex-wrap">
                         {contrib.status !== 'Paid' && (
                           <button
                             onClick={() => onUpdateStatus(contrib.id, 'Paid')}
-                            className="bg-green-600 text-white px-3 py-1 rounded-lg hover:bg-green-700 text-xs"
+                            className="bg-green-600 text-white px-2 sm:px-3 py-1 rounded-lg hover:bg-green-700 text-xs whitespace-nowrap"
                           >
                             Mark Paid
                           </button>
@@ -688,7 +745,7 @@ const ContributionsTab = ({ currentUser, contributions, members, isAdmin, onAddC
                         {contrib.status !== 'Pending' && (
                           <button
                             onClick={() => onUpdateStatus(contrib.id, 'Pending')}
-                            className="bg-yellow-400 text-white px-3 py-1 rounded-lg hover:bg-yellow-500 text-xs"
+                            className="bg-yellow-400 text-white px-2 sm:px-3 py-1 rounded-lg hover:bg-yellow-500 text-xs whitespace-nowrap"
                           >
                             Mark Pending
                           </button>
@@ -700,7 +757,7 @@ const ContributionsTab = ({ currentUser, contributions, members, isAdmin, onAddC
               })}
               {displayContributions.length === 0 && (
                 <tr>
-                  <td colSpan={isAdmin ? 6 : 4} className="text-center text-gray-500 py-4">
+                  <td colSpan={isAdmin ? 6 : 4} className="text-center text-gray-500 py-4 text-sm">
                     No contributions found
                   </td>
                 </tr>
@@ -709,6 +766,66 @@ const ContributionsTab = ({ currentUser, contributions, members, isAdmin, onAddC
           </table>
         </div>
       </div>
+
+      {/* Mobile Card View */}
+      <div className="md:hidden space-y-3">
+        {displayContributions.map(contrib => {
+          const member = members.find(m => m.id === contrib.member_id);
+          return (
+            <div key={contrib.id} className="bg-white rounded-lg shadow-md p-4 space-y-3">
+              {isAdmin && (
+                <div>
+                  <p className="text-xs text-gray-600">Member</p>
+                  <p className="text-sm font-medium text-gray-800">{member?.name || 'Unknown'}</p>
+                </div>
+              )}
+              
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <p className="text-xs text-gray-600">Month</p>
+                  <p className="text-sm font-medium text-gray-800">{contrib.month}</p>
+                </div>
+                <div>
+                  <p className="text-xs text-gray-600">Amount</p>
+                  <p className="text-sm font-medium text-gray-800">R {contrib.amount}</p>
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <p className="text-xs text-gray-600">Status</p>
+                  <StatusBadge status={contrib.status} />
+                </div>
+                <div>
+                  <p className="text-xs text-gray-600">Date Paid</p>
+                  <p className="text-sm text-gray-800">{contrib.date_paid || '-'}</p>
+                </div>
+              </div>
+              
+              {isAdmin && (
+                <div className="border-t pt-3 flex gap-2 flex-wrap">
+                  {contrib.status !== 'Paid' && (
+                    <button
+                      onClick={() => onUpdateStatus(contrib.id, 'Paid')}
+                      className="flex-1 bg-green-600 text-white px-2 py-1.5 rounded-lg hover:bg-green-700 text-xs font-medium"
+                    >
+                      Mark Paid
+                    </button>
+                  )}
+                  {contrib.status !== 'Pending' && (
+                    <button
+                      onClick={() => onUpdateStatus(contrib.id, 'Pending')}
+                      className="flex-1 bg-yellow-400 text-white px-2 py-1.5 rounded-lg hover:bg-yellow-500 text-xs font-medium"
+                    >
+                      Mark Pending
+                    </button>
+                  )}
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
@@ -716,13 +833,13 @@ const ContributionsTab = ({ currentUser, contributions, members, isAdmin, onAddC
 // Announcements Tab Component
 const AnnouncementsTab = ({ announcements, isAdmin, onAddAnnouncement, onDeleteAnnouncement }) => {
   return (
-    <div className="space-y-6">
-      <div className="flex justify-between items-center">
-        <h2 className="text-2xl font-bold text-gray-800">Announcements</h2>
+    <div className="space-y-4 sm:space-y-6">
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 sm:gap-4">
+        <h2 className="text-xl sm:text-2xl font-bold text-gray-800">Announcements</h2>
         {isAdmin && (
           <button
             onClick={onAddAnnouncement}
-            className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 flex items-center gap-2 transition-colors"
+            className="w-full sm:w-auto bg-green-600 text-white px-3 sm:px-4 py-2 rounded-lg hover:bg-green-700 flex items-center justify-center sm:justify-start gap-2 transition-colors text-sm sm:text-base"
           >
             <Plus size={18} />
             Add Announcement
@@ -730,21 +847,21 @@ const AnnouncementsTab = ({ announcements, isAdmin, onAddAnnouncement, onDeleteA
         )}
       </div>
 
-      <div className="space-y-4">
+      <div className="space-y-3 sm:space-y-4">
         {announcements.length === 0 ? (
-          <p className="text-gray-500 text-center py-4">No announcements yet</p>
+          <p className="text-gray-500 text-center py-4 text-sm">No announcements yet</p>
         ) : (
           announcements.map(a => (
-            <div key={a.id} className="bg-white rounded-xl shadow-md p-4 flex justify-between items-start">
-              <div>
-                <h3 className="font-medium text-gray-800">{a.title}</h3>
-                <p className="text-sm text-gray-600 mt-1">{a.message}</p>
+            <div key={a.id} className="bg-white rounded-xl shadow-md p-4 sm:p-6 flex flex-col sm:flex-row sm:justify-between sm:items-start gap-3 sm:gap-4">
+              <div className="flex-1 min-w-0">
+                <h3 className="font-medium text-gray-800 text-sm sm:text-base">{a.title}</h3>
+                <p className="text-xs sm:text-sm text-gray-600 mt-1 break-words">{a.message}</p>
                 <p className="text-xs text-gray-500 mt-2">{a.announcement_date}</p>
               </div>
               {isAdmin && (
                 <button
                   onClick={() => onDeleteAnnouncement(a.id)}
-                  className="text-red-600 hover:text-red-700"
+                  className="text-red-600 hover:text-red-700 flex-shrink-0"
                   title="Delete announcement"
                 >
                   <Trash2 size={18} />
@@ -782,9 +899,9 @@ const StatCard = ({ title, value, subtitle, color }) => {
     purple: 'bg-purple-50 text-purple-700',
   };
   return (
-    <div className={`p-6 rounded-xl shadow-md ${colors[color] || 'bg-gray-50 text-gray-700'}`}>
-      <p className="text-sm font-medium">{title}</p>
-      <p className="text-2xl font-bold mt-1">{value}</p>
+    <div className={`p-4 sm:p-6 rounded-xl shadow-md ${colors[color] || 'bg-gray-50 text-gray-700'}`}>
+      <p className="text-xs sm:text-sm font-medium">{title}</p>
+      <p className="text-xl sm:text-2xl font-bold mt-1">{value}</p>
       {subtitle && <p className="text-xs text-gray-500 mt-1">{subtitle}</p>}
     </div>
   );
@@ -816,73 +933,73 @@ const AddMemberModal = ({ onClose, onSave }) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-3 sm:p-4">
       <div className="bg-white rounded-xl shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-        <div className="p-6 border-b flex justify-between items-center sticky top-0 bg-white">
-          <h2 className="text-xl font-bold text-gray-800">Add New Member</h2>
-          <button onClick={onClose} className="text-gray-500 hover:text-gray-700 transition-colors">
+        <div className="p-4 sm:p-6 border-b flex justify-between items-center sticky top-0 bg-white">
+          <h2 className="text-lg sm:text-xl font-bold text-gray-800">Add New Member</h2>
+          <button onClick={onClose} className="text-gray-500 hover:text-gray-700 transition-colors flex-shrink-0">
             <X size={24} />
           </button>
         </div>
         
-        <div className="p-6 space-y-4">
-          <div className="grid grid-cols-2 gap-4">
+        <div className="p-4 sm:p-6 space-y-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
+              <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">Full Name *</label>
               <input
                 type="text"
                 value={formData.name}
                 onChange={(e) => setFormData({...formData, name: e.target.value})}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
                 placeholder="John Doe"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">ID Number *</label>
+              <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">ID Number *</label>
               <input
                 type="text"
                 value={formData.idNumber}
                 onChange={(e) => setFormData({...formData, idNumber: e.target.value})}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
                 placeholder="9001011234567"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Phone</label>
+              <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">Phone</label>
               <input
                 type="text"
                 value={formData.phone}
                 onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
                 placeholder="082 123 4567"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Email *</label>
+              <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">Email *</label>
               <input
                 type="email"
                 value={formData.email}
                 onChange={(e) => setFormData({...formData, email: e.target.value})}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
                 placeholder="email@example.com"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Password</label>
+              <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">Password</label>
               <input
                 type="text"
                 value={formData.password}
                 onChange={(e) => setFormData({...formData, password: e.target.value})}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
                 placeholder="Default: member123"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Role</label>
+              <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">Role</label>
               <select
                 value={formData.role}
                 onChange={(e) => setFormData({...formData, role: e.target.value})}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
               >
                 <option value="member">Member</option>
                 <option value="admin">Admin</option>
@@ -891,45 +1008,45 @@ const AddMemberModal = ({ onClose, onSave }) => {
           </div>
 
           <div className="border-t pt-4 mt-4">
-            <h3 className="font-medium text-gray-800 mb-3">Banking Details (POPIA Protected)</h3>
-            <div className="grid grid-cols-2 gap-4">
+            <h3 className="font-medium text-gray-800 mb-3 text-sm sm:text-base">Banking Details (POPIA Protected)</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Bank Name</label>
+                <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">Bank Name</label>
                 <input
                   type="text"
                   value={formData.bankName}
                   onChange={(e) => setFormData({...formData, bankName: e.target.value})}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
                   placeholder="FNB, Standard Bank, etc."
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Account Holder</label>
+                <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">Account Holder</label>
                 <input
                   type="text"
                   value={formData.accountHolder}
                   onChange={(e) => setFormData({...formData, accountHolder: e.target.value})}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
                   placeholder="Account holder name"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Account Number</label>
+                <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">Account Number</label>
                 <input
                   type="text"
                   value={formData.accountNumber}
                   onChange={(e) => setFormData({...formData, accountNumber: e.target.value})}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
                   placeholder="1234567890"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Branch Code</label>
+                <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">Branch Code</label>
                 <input
                   type="text"
                   value={formData.branchCode}
                   onChange={(e) => setFormData({...formData, branchCode: e.target.value})}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
                   placeholder="250655"
                 />
               </div>
@@ -937,16 +1054,16 @@ const AddMemberModal = ({ onClose, onSave }) => {
           </div>
         </div>
 
-        <div className="p-6 border-t flex justify-end gap-3 sticky bottom-0 bg-white">
+        <div className="p-4 sm:p-6 border-t flex flex-col-reverse sm:flex-row justify-end gap-3 sticky bottom-0 bg-white">
           <button
             onClick={onClose}
-            className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+            className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors text-sm"
           >
             Cancel
           </button>
           <button
             onClick={handleSave}
-            className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 flex items-center gap-2 transition-colors"
+            className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 flex items-center justify-center gap-2 transition-colors text-sm"
           >
             <Save size={18} />
             Save Member
@@ -976,22 +1093,22 @@ const AddContributionModal = ({ members, onClose, onSave }) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-3 sm:p-4">
       <div className="bg-white rounded-xl shadow-xl max-w-md w-full">
-        <div className="p-6 border-b flex justify-between items-center">
-          <h2 className="text-xl font-bold text-gray-800">Add Contribution</h2>
-          <button onClick={onClose} className="text-gray-500 hover:text-gray-700 transition-colors">
+        <div className="p-4 sm:p-6 border-b flex justify-between items-center">
+          <h2 className="text-lg sm:text-xl font-bold text-gray-800">Add Contribution</h2>
+          <button onClick={onClose} className="text-gray-500 hover:text-gray-700 transition-colors flex-shrink-0">
             <X size={24} />
           </button>
         </div>
         
-        <div className="p-6 space-y-4">
+        <div className="p-4 sm:p-6 space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Member *</label>
+            <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">Member *</label>
             <select
               value={formData.memberId}
               onChange={(e) => setFormData({...formData, memberId: e.target.value})}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+              className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
             >
               <option value="">Select Member</option>
               {members.map(member => (
@@ -1000,30 +1117,30 @@ const AddContributionModal = ({ members, onClose, onSave }) => {
             </select>
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Month *</label>
+            <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">Month *</label>
             <input
               type="text"
               value={formData.month}
               onChange={(e) => setFormData({...formData, month: e.target.value})}
               placeholder="e.g., January 2026"
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+              className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Amount (R)</label>
+            <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">Amount (R)</label>
             <input
               type="number"
               value={formData.amount}
               onChange={(e) => setFormData({...formData, amount: parseInt(e.target.value)})}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+              className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Status</label>
+            <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">Status</label>
             <select
               value={formData.status}
               onChange={(e) => setFormData({...formData, status: e.target.value})}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+              className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
             >
               <option value="Pending">Pending</option>
               <option value="Paid">Paid</option>
@@ -1031,16 +1148,16 @@ const AddContributionModal = ({ members, onClose, onSave }) => {
           </div>
         </div>
 
-        <div className="p-6 border-t flex justify-end gap-3">
+        <div className="p-4 sm:p-6 border-t flex flex-col-reverse sm:flex-row justify-end gap-3">
           <button
             onClick={onClose}
-            className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+            className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors text-sm"
           >
             Cancel
           </button>
           <button
             onClick={handleSave}
-            className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 flex items-center gap-2 transition-colors"
+            className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 flex items-center justify-center gap-2 transition-colors text-sm"
           >
             <Save size={18} />
             Save
@@ -1068,42 +1185,42 @@ const AddAnnouncementModal = ({ onClose, onSave }) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-3 sm:p-4">
       <div className="bg-white rounded-xl shadow-xl max-w-md w-full">
-        <div className="p-6 border-b flex justify-between items-center">
-          <h2 className="text-xl font-bold text-gray-800">Add Announcement</h2>
-          <button onClick={onClose} className="text-gray-500 hover:text-gray-700 transition-colors">
+        <div className="p-4 sm:p-6 border-b flex justify-between items-center">
+          <h2 className="text-lg sm:text-xl font-bold text-gray-800">Add Announcement</h2>
+          <button onClick={onClose} className="text-gray-500 hover:text-gray-700 transition-colors flex-shrink-0">
             <X size={24} />
           </button>
         </div>
         
-        <div className="p-6 space-y-4">
+        <div className="p-4 sm:p-6 space-y-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Title *</label>
+            <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">Title *</label>
             <input
               type="text"
               value={formData.title}
               onChange={(e) => setFormData({...formData, title: e.target.value})}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+              className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
               placeholder="Announcement title"
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Message *</label>
+            <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">Message *</label>
             <textarea
               value={formData.message}
               onChange={(e) => setFormData({...formData, message: e.target.value})}
               rows="4"
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+              className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
               placeholder="Announcement message"
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">Priority</label>
+            <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">Priority</label>
             <select
               value={formData.priority}
               onChange={(e) => setFormData({...formData, priority: e.target.value})}
-              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+              className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
             >
               <option value="normal">Normal</option>
               <option value="high">High</option>
@@ -1111,16 +1228,16 @@ const AddAnnouncementModal = ({ onClose, onSave }) => {
           </div>
         </div>
 
-        <div className="p-6 border-t flex justify-end gap-3">
+        <div className="p-4 sm:p-6 border-t flex flex-col-reverse sm:flex-row justify-end gap-3">
           <button
             onClick={onClose}
-            className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+            className="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors text-sm"
           >
             Cancel
           </button>
           <button
             onClick={handleSave}
-            className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 flex items-center gap-2 transition-colors"
+            className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 flex items-center justify-center gap-2 transition-colors text-sm"
           >
             <Save size={18} />
             Save
