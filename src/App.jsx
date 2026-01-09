@@ -357,26 +357,26 @@ const LoginScreen = ({ onLogin, error, loading }) => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-50 to-green-100 flex items-center justify-center p-3 sm:p-4">
-      <div className="bg-white rounded-2xl shadow-xl p-5 sm:p-8 w-full max-w-md">
-        <div className="text-center mb-6 sm:mb-8">
-          <div className="bg-green-600 w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
-            <Users className="text-white" size={24} />
+    <div className="min-h-screen bg-gradient-to-br from-green-50 to-green-100 flex items-center justify-center p-4">
+      <div className="bg-white rounded-2xl shadow-xl p-8 w-full max-w-md">
+        <div className="text-center mb-8">
+          <div className="bg-green-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <Users className="text-white" size={32} />
           </div>
-          <h1 className="text-xl sm:text-3xl font-bold text-gray-800">Powerhouse Stokvel</h1>
-          <p className="text-lg sm:text-2xl font-bold text-gray-600 mt-1 sm:mt-2">Login</p>
+          <h1 className="text-3xl font-bold text-gray-800">Powerhouse Stokvel</h1>
+          <p className="text-2xl font-bold text-gray-600 mt-2">Login</p>
         </div>
 
         {error && (
-          <div className="mb-4 bg-red-50 border border-red-200 text-red-700 px-3 sm:px-4 py-2 sm:py-3 rounded-lg text-xs sm:text-sm flex items-start gap-2">
-            <AlertCircle size={16} className="flex-shrink-0 mt-0.5" />
-            <span>{error}</span>
+          <div className="mb-4 bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm flex items-center gap-2">
+            <AlertCircle size={18} />
+            {error}
           </div>
         )}
 
-        <div className="space-y-3 sm:space-y-4">
+        <div className="space-y-4">
           <div>
-            <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">
+            <label className="block text-sm font-medium text-gray-700 mb-2">
               Email Address
             </label>
             <input
@@ -384,14 +384,14 @@ const LoginScreen = ({ onLogin, error, loading }) => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               onKeyPress={(e) => e.key === 'Enter' && handleSubmit()}
-              className="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
               placeholder="your.email@example.com"
               disabled={loading}
             />
           </div>
 
           <div>
-            <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">
+            <label className="block text-sm font-medium text-gray-700 mb-2">
               Password
             </label>
             <input
@@ -399,7 +399,7 @@ const LoginScreen = ({ onLogin, error, loading }) => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               onKeyPress={(e) => e.key === 'Enter' && handleSubmit()}
-              className="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
               placeholder="••••••••"
               disabled={loading}
             />
@@ -408,7 +408,7 @@ const LoginScreen = ({ onLogin, error, loading }) => {
           <button
             onClick={handleSubmit}
             disabled={loading}
-            className="w-full bg-green-600 text-white py-2 sm:py-3 rounded-lg hover:bg-green-700 font-medium text-sm sm:text-base transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {loading ? 'Logging in...' : 'Login'}
           </button>
