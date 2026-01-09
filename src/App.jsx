@@ -363,7 +363,7 @@ const LoginScreen = ({ onLogin, error, loading }) => {
           <div className="bg-green-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
             <Users className="text-white" size={32} />
           </div>
-          <h1 className="text-3xl font-bold text-gray-800">Powerhouse Stokvel</h1>
+          <h1 className="text-3xl font-bold text-gray-800">Powerhouse Stockvel</h1>
           <p className=" text-2xl font-bold text-gray-600  mt-2">Login</p>
 
           
